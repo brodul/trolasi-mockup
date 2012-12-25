@@ -1,3 +1,3 @@
-[submodule "lib/jshere"]
-	path = lib/jshere
+[submodule "lib/jhere"]
+	path = lib/jhere
 	url = git://github.com/mmarcon/jhere.git
