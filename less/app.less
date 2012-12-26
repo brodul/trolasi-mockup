@@ -1,0 +1,146 @@
+@import "../lib/bootstrap/less/bootstrap.less";
+@import "../lib/bootstrap/less/responsive.less";
+
+@sansFontFamily: 'Oswald', sans-serif;
+
+
+#lpp-map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 40;
+}
+#lpp-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#lpp-container {
+  margin: 0 auto;
+  max-width: 420px;
+  position: relative;
+  z-index: 50;
+}
+#lpp-search {
+  width: 406px;
+  margin-top: 0.5em;
+  font-size: 2em;
+  height: 1.5em;
+  line-height: 1.5em;
+  background-color: #f7f7f7;
+  &:focus {
+    border-color: #999999;
+  }
+}
+#lpp-search-results {
+  margin: 0;
+  margin-top: 1em;
+  font-size: 1.5em;
+  width: 100%;
+  & > li {
+    border-bottom: 1px dotted #999;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    &:last-child {
+      border: 0;
+    }
+    & > a {
+      line-height: 2em;
+      margin-bottom: 0.2em;
+    }
+    & > ul {
+      font-size: 0.6em;
+      line-height: 1em;
+      margin: 1em 0 1em 0 3em;
+      padding: 0;
+      list-style: none;
+      li {
+        display: inline-block;  
+        margin: 0;
+        padding: 0;
+        a {
+          padding: 0.1em 0.3em;
+          margin: 0.1em;
+          background: #333;
+          color: #eee;
+          text-decoration: none;
+          float: left;
+          &:hover {
+            background: @orange;
+          }
+        }
+      }
+    }
+  }
+}
+#lpp-content {
+  z-index: 1100;
+  border-radius: 4px 4px 4px 4px;
+  background-clip: padding-box;
+  background-color: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: ;
+  width: 100%;
+
+  h2 {
+    font-size: 1.5em;
+    margin: 1em 15px;
+  }
+
+  ul {
+    margin: 0 15px ;
+    padding: 0;
+    list-style: none;
+    li {
+      margin-bottom: 1em;
+      a {
+        background: #333333;
+        color: #EEEEEE;
+        display: block;
+        float: left;
+        font-size: 5em;
+        line-height: 1em;
+        margin: 0 0.1em 0.1em 0;
+        padding: 0.1em 0.3em;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    } 
+  }
+
+  .lpp-arrival-times {
+    margin-bottom: 0.3em;
+    h3 {
+      margin: 0.1em 0 0.3em 0;
+      font-size: 1.2em;
+      line-height: 1em;
+    }
+    p {
+      margin: 0;
+      font-size: 1.2em;
+      font-family: Arial;
+    }
+  }
+
+  .lpp-close-btn {
+    font-size: 0.7em;
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    color: #555;
+  }
+
+  .progress {
+    padding: 1em;
+    box-shadow: none;
+  }
+  .progress-striped .bar {
+    background-color: #999;
+  }
+}

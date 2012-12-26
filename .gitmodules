@@ -4,6 +4,6 @@
 [submodule "lib/history.js"]
 	path = lib/history.js
 	url = git://github.com/balupton/history.js.git
-[submodule "lib/buildout"]
-	path = lib/buildout
+[submodule "lib/bootstrap"]
+	path = lib/bootstrap
 	url = git://github.com/twitter/bootstrap.git
