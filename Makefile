@@ -1,29 +1,24 @@
 LESSC = lessc
 NODEJS = node
-STANDALONE = name=lib/almond include=main wrap=true
-TARGETS = build/css/frontend.css build/css/backend.css build/js/backend.js build/js/frontend.js build/images build/index.html
-
+TARGETS = build/index.html build/images build/app.css build/app.js
 all:: clean $(TARGETS)
 
-build/css/backend.css:
-	$(LESSC) src/less/backend.less -x $@
-build/css/frontend.css:
-	$(LESSC) src/less/frontend.less -x $@
-build/js/frontend.js:
-	$(NODEJS) lib/r.js -o baseUrl=src insertRequire=frontend mainConfigFile=src/frontend.js name=../lib/almond include=frontend wrap=true optimize=uglify out=$@
-build/js/backend.js:
-	$(NODEJS) lib/r.js -o baseUrl=src insertRequire=backend mainConfigFile=src/backend.js name=../lib/almond include=backend wrap=true optimize=uglify out=$@
+build/app.css:
+	$(LESSC) less/app.less -x $@
+build/app.js:
+	$(NODEJS) lib/r.js -o baseUrl=js insertRequire=app mainConfigFile=js/app.js name=../lib/almond include=app wrap=true optimize=uglify out=$@
 build/images:
 	mkdir -p build/images
 	cp images/* build/images
 build/index.html:
 	cp index.html $@
 	sed -i 's@stylesheet/less@stylesheet@g' $@
-	sed -i 's@src/less/frontend.less@css/frontend.css@g' $@
-	sed -i 's@lib/less.js"></script><script data-main="src/frontend" src="lib/require.js@js/frontend.js@g' $@
-	sed -i 's@data-iframe-resources="src/less/backend.less;lib/less.js;lib/require.js?data-main=src/backend;"@data-iframe-resources="css/backend.css;js/backend.js"@g' $@
+	sed -i 's@less/app.less@app.css@g' $@
+	sed -i 's@<script src="http://cloud.github.com/downloads/cloudhead/less.js/less-1.3.1.min.js" type="text/javascript"></script>@@g' $@
+	sed -i 's@<script data-main="js/app" src="lib/require.js" type="text/javascript"></script>@<script src="app.js" type="text/javascript"></script>@g' $@
 
 bootstrap:
+	mkdir -p build
 	git submodule update --init --recursive
 
 clean:

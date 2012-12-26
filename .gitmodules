@@ -7,3 +7,6 @@
 [submodule "lib/bootstrap"]
 	path = lib/bootstrap
 	url = git://github.com/twitter/bootstrap.git
+[submodule "build"]
+	path = build
+	url = git@github.com:garbas/trolasi-mockup.git
